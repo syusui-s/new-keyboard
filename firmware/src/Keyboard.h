@@ -561,15 +561,19 @@ void switchOS(void);
 #define MOD_C           0
 #define MOD_CJ          1
 #define MOD_CJ_MAC      2
-#define MOD_S           3
-#define MOD_SJ          4
-#define MOD_SJ_MAC      5
+#define MOD_CW          3
+#define MOD_S           4
+#define MOD_SJ          5
+#define MOD_SJ_MAC      6
+#define MOD_SW          7
 #ifndef ENABLE_DUAL_ROLE_FN
 #define MOD_MAX         MOD_SJ_MAC
 #else
-#define MOD_CX          6
-#define MOD_SX          7
-#define MOD_MAX         MOD_SX
+#define MOD_CX          9
+#define MOD_SX          10
+#define MOD_CWX         11
+#define MOD_SWX         12
+#define MOD_MAX         MOD_SWX
 #endif
 #define MOD_DEFAULT     MOD_C
 
@@ -577,7 +581,7 @@ void emitModName(void);
 void switchMod(void);
 
 #define isMacMod()          (mod == MOD_CJ_MAC || mod == MOD_SJ_MAC)
-#define isDualRoleFnMod()   (mod == MOD_CX || mod == MOD_SX)
+#define isDualRoleFnMod()   (mod >= MOD_CX || mod <= MOD_SWX)
 
 #define DELAY_0         0
 #define DELAY_12        1
